@@ -1,0 +1,324 @@
+:root {
+  /* Colors */
+  --clr-primary-red: hsl(0, 100%, 74%);
+  --clr-primary-green: hsl(154, 59%, 51%);
+  --clr-primary-blue: hsl(248, 32%, 49%);
+
+  --clr-neutral-dark-blue: hsl(249, 10%, 26%);
+  --clr-neutral-grayish-blue: hsl(246, 25%, 77%);
+
+  /* Font Family */
+  --font-family-primary: "Poppins", sans-serif;
+
+  /* Font Weight */
+  --font-weight-bold: 700;
+  --font-weight-medium: 600;
+  --font-weight-regular: 500;
+  --font-weight-light: 400;
+
+  /* Font Size */
+  --font-size-200: 0.75rem;
+  --font-size-300: 0.875rem;
+  --font-size-400: 1rem;
+  --font-size-500: 1.125rem;
+  --font-size-600: 1.25rem;
+  --font-size-700: 1.5rem;
+  --font-size-800: 1.875rem;
+  --font-size-900: 2.25rem;
+}
+
+/* Reset */
+/*  https://piccalil.li/blog/a-modern-css-reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* General styling */
+
+body {
+  background-image: url("./assets/bg-intro-mobile.png");
+  background-color: var(--clr-primary-red);
+  color: white;
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-300);
+}
+
+main {
+  display: grid;
+  grid-template-areas:
+    "description"
+    "price"
+    "form";
+  grid-template-rows: 3fr 1fr 4fr;
+  gap: 2rem;
+  height: 100dvh;
+  height: 100vh;
+  padding: 4rem 2rem 4rem 2rem;
+}
+
+.section-description {
+  grid-area: description;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.section-description h1 {
+  text-align: center;
+  font-size: var(--font-size-700);
+  font-weight: var(--font-weight-bold);
+  padding: 0 10%;
+}
+
+.section-description p {
+  text-align: center;
+}
+
+.section-price {
+  background-color: var(--clr-primary-blue);
+  border-radius: 1rem;
+  grid-area: price;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0.5rem 0.1rem 0 rgba(0, 0, 0, 0.25);
+}
+
+.section-price p {
+  text-align: center;
+}
+
+strong {
+  font-weight: var(--font-weight-medium);
+}
+
+form {
+  background-color: white;
+  grid-area: form;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 1rem;
+  box-shadow: 0 0.5rem 0.1rem 0 rgba(0, 0, 0, 0.25);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.input-section {
+  width: 100%;
+  border: 0.1rem solid var(--clr-neutral-grayish-blue);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.input-section-error {
+  width: 100%;
+  border: 0.1rem solid var(--clr-primary-red);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--clr-primary-red);
+  overflow: hidden;
+}
+
+input {
+  padding: 0.5rem;
+  border: none;
+  color: var(--clr-neutral-dark-blue);
+  font-weight: var(--font-weight-regular);
+  text-transform: capitalize;
+}
+
+.email-error {
+  color: var(--clr-primary-red);
+}
+
+button {
+  background-color: var(--clr-primary-green);
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 0.5rem;
+}
+
+button:hover {
+  background-color: hsla(154, 59%, 51%, 70%);
+  box-shadow: 0 0.2rem 0.1rem 0 var(--clr-primary-green);
+}
+
+form p {
+  color: var(--clr-neutral-grayish-blue);
+  text-align: center;
+  padding: 0 10%;
+}
+
+a {
+  color: var(--clr-primary-red);
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.error-icon {
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.error-message {
+  color: var(--clr-primary-red);
+  font-size: var(--font-size-200);
+  font-weight: var(--font-weight-light);
+  text-align: right;
+  padding: 0 0.5rem;
+}
+
+/* Media queries */
+@media (min-width: 50em) {
+  main {
+    grid-template-areas:
+      "description price"
+      "description form"
+      "description form"
+      "description form"
+      "description form"
+      "description form";
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    height: 100dvh;
+    height: 100vh;
+    padding: 10%;
+  }
+
+  .section-description {
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .section-description h1 {
+    text-align: left;
+    font-size: var(--font-size-900);
+    font-weight: var(--font-weight-bold);
+    padding: 0 20% 0 0;
+  }
+
+  .section-description p {
+    text-align: left;
+  }
+  form {
+    padding: 2rem;
+  }
+
+  /* 
+  .heroMobile {
+    display: none;
+  }
+
+  .image-section {
+    overflow: hidden;
+  }
+
+  .heroDesktop {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+  }
+
+  header,
+  .content-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  header,
+  .content-section {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+
+  h1,
+  p {
+    text-align: left;
+  }
+  */
+}
